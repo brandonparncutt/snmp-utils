@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
+#
 # Brandon Parncutt
 # brandon.parncutt@gmail.com
+#
 # snmpwalk.py
 
 
@@ -13,9 +15,9 @@ from queue import Queue
 class SnmpSession(object):
     """Sets up a basic SNMP session"""
 
-    def __init__(self, oid='sysDescr', version=2, hostname="localhost",
+    def __init__(self, oid, version=2, hostname="localhost",
                  community="wookie"):
-        self.oid = oid
+        self.oid = oid.split()
         self.version = version
         self.hostname = hostname
         self.community = community
@@ -54,7 +56,7 @@ class SnmpController(object):
         p.add_option('-c', '--community', help='Community String',
                      default='wookie')
         p.add_option('-o', '--oid', help='Object Identifier',
-                     default='sysDescr')
+                     default='sysDescr', action='store')
         p.add_option('-H', '--hostname', help='Hostname or IP',
                      default='localhost', dest='host')
         p.add_option('-V', '--Version', help='SNMP version', default='2')
