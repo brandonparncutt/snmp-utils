@@ -44,7 +44,8 @@ class SnmpSession(object):
 
 
 class SnmpController(object):
-    """Controls the behavior and format of the output of the SnmpSession().
+    """
+    Controls the behavior and format of the output of the SnmpSession().
     """
 
     def config(self):
